@@ -3,8 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body{
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background: url("img/background.jpg");
+        }
+    </style>
 </head>
 <body>
-hello
+    <div class="container" ng-app="index">
+        <div ui-view="header"></div>
+        <div ui-view="main"></div>
+        <div ui-view="footer"></div>
+    </div>
 </body>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="//cdn.bootcss.com/angular.js/1.6.5/angular.min.js"></script>
+<script src="//cdn.bootcss.com/angular-ui-router/1.0.3/angular-ui-router.min.js"></script>
+<script>
+    angular.module('index',['ui.router'])
+        .config(function ($stateProvider, $urlRouterProvider) {
+            $urlRouterProvider.when('index');
+            $stateProvider.state('index',{
+                url: '',
+                views:{
+                    'header':{
+                        templateUrl: 'html/header.html'
+                    },
+                    'main':{
+                        templateUrl: 'html/home.html'
+                    },
+                    'footer':{
+                        templateUrl: 'html/footer.html'
+                    }
+                }
+            })})
+</script>
 </html>
