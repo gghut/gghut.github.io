@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ggh</title>
+    <link href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link  rel="stylesheet" type="text/css" href="markdown-css-themes-gh-pages/markdown6.css" />
+</head>
+<body ng-app="blog">
+<div  style="background-color: white; padding: 20px">
+    <div ui-view="content"></div>
+</div>
+</body>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="//cdn.bootcss.com/angular.js/1.6.5/angular.min.js"></script>
+<script src="//cdn.bootcss.com/angular-ui-router/1.0.3/angular-ui-router.min.js"></script>
+<script>
+    angular.module('blog',['ui.router'])
+        .config(function ($stateProvider, $urlRouterProvider) {
+            $urlRouterProvider.when('index');
+            $stateProvider.state('index',{
+                url: '',
+                views:{
+                    'content':{
+                        templateUrl: 'entity'
+                    }
+                }
+            })});
+</script>
+</html>
