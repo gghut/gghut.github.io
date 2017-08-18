@@ -19,13 +19,7 @@
         <div class="col-md-9">
             <div class="row" style="height: 50vh">
                 <div class="col-md-11 pre-scrollable" style="height: 100%;max-height: 100%">
-
-                    <!--<link  rel="stylesheet" type="text/css" href="markdown-css-themes-gh-pages/markdown6.css" />-->
-                    <div style="max-width: 100%">
-                        <img src="images/bg/bg1.png">
-                        <img src="images/bg/bg2.png">
-                        <img src="images/bg/bg3.png">
-                        <img src="images/bg/bg4.png">
+                    <div style="max-width: 100%" id="projects">
                     </div>
                 </div>
                 <div class="col-md-1" style=" background-color: white; height: 100%">
@@ -42,4 +36,25 @@
 <script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="//cdn.bootcss.com/angular.js/1.6.5/angular.min.js"></script>
 <script src="//cdn.bootcss.com/angular-ui-router/1.0.3/angular-ui-router.min.js"></script>
+<script>
+    $.ajax({
+        url: 'data/project/list.json',
+        type: 'get',
+        success: function (data) {
+            for (var i in data){
+                var project = data[i];
+                var div = $('<div style="width: '+(i%2+1)*25+'%; padding: 10px; margin: 10px; background-color: grey; float: left"></div>');
+                var title = $('<h1>'+project.title+'</h1>');
+                div.append(title);
+                var description = $('<p>'+project.description +'</p>');
+                div.append(description);
+                div.val(project.uri);
+                div.click(function () {
+                    window.location.href = this.value;
+                });
+                $('#projects').append(div)
+            }
+        }
+    })
+</script>
 </html>
