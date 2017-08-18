@@ -27,5 +27,12 @@
                     }
                 }
             })});
+    $.ajax({
+        url: 'data/blog_list.json',
+        type: 'get',
+        success: function (data) {
+            console.log(data)
+        }
+    })
 </script>
 </html>
