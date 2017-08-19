@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>装修预算</title>
+    <link href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container" ng-app>
+    <div>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>项目</th>
+                <th>单价</th>
+                <th>面积</th>
+                <th>总价</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th><input></th>
+                <th><input type="text" ng-model="price1"></th>
+                <th><input type="text" ng-model="area1"></th>
+                <th ng-model="all1= price1 * area1">{{all1}}</th>
+            </tr>
+            <tr>
+                <th><input></th>
+                <th><input type="text" ng-model="price2"></th>
+                <th><input type="text" ng-model="area2"></th>
+                <th ng-model="all2= price2* area2">{{all2}}</th>
+            </tr>
+            </tbody>
+        </table>
+        <div>
+           <input type="button" value="新增项" ng-click="toggle()"> 合计：<span>{{all1+all2}}</span>
+        </div>
+    </div>
+</div>
+</body>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="//cdn.bootcss.com/angular.js/1.6.5/angular.min.js"></script>
+<script>
+    angular.module('',[])
+        .controller('', function($scope) {
+            $scope.toggle = function () {
+                $scope.all2 = 1;
+            }
+        })
+</script>
+</html>
