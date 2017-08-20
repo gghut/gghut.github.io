@@ -19,21 +19,134 @@
             </thead>
             <tbody>
             <tr>
-                <th><input></th>
-                <th><input type="text" ng-model="price1"></th>
-                <th><input type="text" ng-model="area1"></th>
+                <th><input value="地板"></th>
+                <th><input type="text" ng-init="price1=150" ng-model="price1"></th>
+                <th><input type="text" ng-init="area1=50" ng-model="area1"></th>
                 <th ng-model="all1= price1 * area1">{{all1}}</th>
             </tr>
             <tr>
-                <th><input></th>
-                <th><input type="text" ng-model="price2"></th>
-                <th><input type="text" ng-model="area2"></th>
+                <th><input value="地砖"></th>
+                <th><input type="text" ng-init="price2=30" ng-model="price2"></th>
+                <th><input type="text" ng-init="area2=270" ng-model="area2"></th>
                 <th ng-model="all2= price2* area2">{{all2}}</th>
+            </tr>
+            <tr>
+                <th><input value="墙砖"></th>
+                <th><input type="text" ng-init="price3 = 50" ng-model="price3"></th>
+                <th><input type="text" ng-init="area3 = 200" ng-model="area3"></th>
+                <th ng-model="all3= price3* area3">{{all3}}</th>
+            </tr>
+            <tr>
+                <th><input value="涂料"></th>
+                <th><input type="text" ng-init="price4 = 1000" ng-model="price4"></th>
+                <th><input type="text" ng-init="area4 = 1" ng-model="area4"></th>
+                <th ng-model="all4 = price4* area4">{{all4}}</th>
+            </tr>
+            <tr>
+                <th><input value="辅料"></th>
+                <th><input type="text" ng-init="price5=3000" ng-model="price5"></th>
+                <th><input type="text" ng-init="area5=1" ng-model="area5"></th>
+                <th ng-model="all5= price5* area5">{{all5}}</th>
+            </tr>
+            <tr>
+                <th><input value="门"></th>
+                <th><input type="text" ng-init="price6=1000" ng-model="price6"></th>
+                <th><input type="text" ng-init="area6=5" ng-model="area6"></th>
+                <th ng-model="all6= price6* area6">{{all6}}</th>
+            </tr>
+            <tr>
+                <th><input value="防水材料"></th>
+                <th><input type="text" ng-init="price7=1" ng-model="price7"></th>
+                <th><input type="text" ng-init="area7=300" ng-model="area7"></th>
+                <th ng-model="all7= price7* area7">{{all7}}</th>
+            </tr>
+            <tr>
+                <th><input value="厨房大理石板"></th>
+                <th><input type="text" ng-init="price8=500" ng-model="price8"></th>
+                <th><input type="text" ng-init="area8=4" ng-model="area8"></th>
+                <th ng-model="all8= price8* area8">{{all8}}</th>
+            </tr>
+            <tr>
+                <th><input value="橱柜"></th>
+                <th><input type="text" ng-init="price9=400" ng-model="price9"></th>
+                <th><input type="text" ng-init="area9=4" ng-model="area9"></th>
+                <th ng-model="all9= price9* area9">{{all9}}</th>
+            </tr>
+            <tr>
+                <th><input value="厨房吊顶"></th>
+                <th><input type="text" ng-init="price10=130" ng-model="price10"></th>
+                <th><input type="text" ng-init="area10=9" ng-model="area10"></th>
+                <th ng-model="all10= price10* area10">{{all10}}</th>
+            </tr>
+            <tr>
+                <th><input value="燃气灶"></th>
+                <th><input type="text" ng-init="price11=2000" ng-model="price11"></th>
+                <th><input type="text" ng-init="area11=1" ng-model="area11"></th>
+                <th ng-model="all11= price11* area11">{{all11}}</th>
+            </tr>
+            <tr>
+                <th><input value="油烟机"></th>
+                <th><input type="text" ng-init="price12=3000" ng-model="price12"></th>
+                <th><input type="text" ng-init="area12=1" ng-model="area12"></th>
+                <th ng-model="all12= price12* area12">{{all12}}</th>
+            </tr>
+            <tr>
+                <th><input value="客厅吊顶"></th>
+                <th><input type="text" ng-init="price13=4000" ng-model="price13"></th>
+                <th><input type="text" ng-init="area13=1" ng-model="area13"></th>
+                <th ng-model="all13= price13* area13">{{all13}}</th>
+            </tr>
+            <tr>
+                <th><input value="窗户"></th>
+                <th><input type="text" ng-init="price14=300" ng-model="price14"></th>
+                <th><input type="text" ng-init="area14=18" ng-model="area14"></th>
+                <th ng-model="all14= price14* area14">{{all14}}</th>
+            </tr>
+            <tr>
+                <th><input value="飘窗"></th>
+                <th><input type="text" ng-init="price15=400" ng-model="price15"></th>
+                <th><input type="text" ng-init="area15=5" ng-model="area15"></th>
+                <th ng-model="all15= price15* area15">{{all15}}</th>
+            </tr>
+            <tr>
+                <th><input value="开关插座"></th>
+                <th><input type="text" ng-init="price16=10" ng-model="price16"></th>
+                <th><input type="text" ng-init="area16=45" ng-model="area16"></th>
+                <th ng-model="all16= price16* area16">{{all16}}</th>
+            </tr>
+            <tr>
+                <th><input value="鞋柜"></th>
+                <th><input type="text" ng-init="price17=3000" ng-model="price17"></th>
+                <th><input type="text" ng-init="area17=1" ng-model="area17"></th>
+                <th ng-model="all17= price17* area17">{{all17}}</th>
+            </tr>
+            <tr>
+                <th><input value="五金"></th>
+                <th><input type="text" ng-init="price18=5500" ng-model="price18"></th>
+                <th><input type="text" ng-init="area18=1" ng-model="area18"></th>
+                <th ng-model="all18= price18* area18">{{all18}}</th>
             </tr>
             </tbody>
         </table>
         <div>
-           <input type="button" value="新增项" ng-click="toggle()"> 合计：<span>{{all1+all2}}</span>
+           <input type="button" value="新增项" ng-click="toggle()"> 合计：<span>{{all1
+            +all2
+            +all3
+            +all4
+            +all5
+            +all6
+            +all7
+            +all8
+            +all9
+            +all10
+            +all11
+            +all12
+            +all13
+            +all14
+            +all15
+            +all16
+            +all17
+            +all18}}</span>
         </div>
     </div>
 </div>
