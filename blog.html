@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <title>Ggh</title>
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
-    <!--<link href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">-->
+    <link href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link  rel="stylesheet" type="text/css" href="css/markdown6.css" />
 </head>
 <body ng-app="blog">
-<div  style="background-color: white; padding: 5%;height: 100%">
+<div style="background-color: white; padding: 5%;height: 100%">
     <div ui-view="content"></div>
 </div>
 </body>
@@ -19,15 +19,16 @@
 <script>
     angular.module('blog',['ui.router'])
         .config(function ($stateProvider, $urlRouterProvider) {
-            $urlRouterProvider.when('index');
-            $stateProvider.state('index',{
-                url: '',
+            $urlRouterProvider.otherwise('/');
+            $stateProvider.state('blog',{
+                url: '/',
                 views:{
                     'content':{
                         templateUrl: 'blog/html/3.html'
                     }
                 }
-            })});
+            })
+        });
     $.ajax({
         url: 'data/blog/list.json',
         type: 'get',
