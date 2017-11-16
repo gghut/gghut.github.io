@@ -12,7 +12,6 @@
 |2017-11-08 09:33:00|12.52|169200|0.2|
 |...|...|...|...|
 
-
 假设:z = w<sub>1</sub>P<sub>1</sub> +
 w<sub>2</sub>P<sub>2</sub> +
 w<sub>3</sub>P<sub>3</sub> +
@@ -39,14 +38,29 @@ z是相对于上一点的价格差,大于0表示上涨,小于0标识下降
 
 每天交易时间为9:30~11:30和13:00~15:00,每隔一分钟数据统计一次当前交易价格和当前交易量,每天241条数据
 
-我们假设每天的上升下降都是根据交易价格和交易量呈线性分布的,所以我们往前选择最近的五个点作为特征进行建模
+我们假设每天的上升下降都是根据交易价格和交易量呈线性分布的,所以我们往前选择最近的三个点作为特征进行建模
 
 训练算法
 ---
 
-使用梯度上升算法找到最佳参数集
+### 使用梯度上升算法找到最佳参数集
 
-grandf(x,y) = &int;<sub>x</sub>(x,y)$\vec{i}$+&int;<sub>y</sub>(x,y)$\vec{j}$
+梯度计算:grandf(x,y) = &int;<sub>x</sub>(x,y)$\vec{i}$+&int;<sub>y</sub>(x,y)$\vec{j}$
 
-测试算法
----
+通过公式可以看出一个特征的梯度为系数组成的向量,样本里面的梯度可以组成一个矩阵
+
+```python
+    weights = ones((n,1))
+    for k in range(maxCycles):
+        h = sigmoid(dataMatrix*weights) 
+        error = labelMat - h 
+        weights += alpha * dataMatrix.transpose() * error
+```
+
+其中maxCycles为迭代次数,dataMatrix为特征矩阵,alpha为每次迭代的步长
+
+weights及为要求的最佳拟合参数集
+
+### 使用最小二乘法找到最佳参数集
+
+最小二乘法: (X<sup>T</sup>X)<sup>-1</sup>X<sup>T</sup>y
