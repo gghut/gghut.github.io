@@ -6,9 +6,7 @@
 给定一个证券交易数据样本集,如下:
 
 |time|price|turnover|trend|
-
 |...|:...:|...:|...|
-
 |s|s|s||
 
 假设:z = w<sub>1</sub>P<sub>1</sub> + 
