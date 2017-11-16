@@ -5,11 +5,26 @@
 
 给定一个证券交易数据样本集,如下:
 
-|time|price|turnover|
-|...|:...:|...:|
-|s|s|s|
+|time|price|turnover|trend|
 
+|...|:...:|...:|...|
 
+|s|s|s||
+
+假设:z = w<sub>1</sub>P<sub>1</sub> + 
+w<sub>2</sub>P<sub>2</sub> + 
+w<sub>3</sub>P<sub>3</sub> +
+w<sub>4</sub>T<sub>1</sub> + 
+w<sub>5</sub>T<sub>2</sub> + 
+w<sub>6</sub>T<sub>3</sub> 
+
+其中:P<sub>1</sub>,P<sub>2</sub>,P<sub>3</sub>分别是过去的连续三点的价格
+
+T<sub>1</sub>,T<sub>2</sub>,T<sub>3</sub>分别是过去连续三点的成交量
+
+z是相对于上一点的价格差,大于0表示上涨,小于0标识下降
+
+通过带入样本数据转化成求6元多项式的的解,通常这样的多项式是没有解的,所以转化为求该多项式的最优解$\vec{w}$
 
 收集数据
 ---
