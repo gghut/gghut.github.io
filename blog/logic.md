@@ -13,12 +13,12 @@
 |...|...|...|...|
 
 
-假设:z = w<sub>1</sub>P<sub>1</sub> + 
-w<sub>2</sub>P<sub>2</sub> + 
+假设:z = w<sub>1</sub>P<sub>1</sub> +
+w<sub>2</sub>P<sub>2</sub> +
 w<sub>3</sub>P<sub>3</sub> +
-w<sub>4</sub>T<sub>1</sub> + 
-w<sub>5</sub>T<sub>2</sub> + 
-w<sub>6</sub>T<sub>3</sub> 
+w<sub>4</sub>T<sub>1</sub> +
+w<sub>5</sub>T<sub>2</sub> +
+w<sub>6</sub>T<sub>3</sub>
 
 其中:P<sub>1</sub>,P<sub>2</sub>,P<sub>3</sub>分别是过去的连续三点的价格
 
