@@ -63,4 +63,4 @@ weights及为要求的最佳拟合参数集
 
 ### 使用最小二乘法找到最佳参数集
 
-最小二乘法: (X<sup>T</sup>X)<sup>-1</sup>X<sup>T</sup>y
+最小二乘法: w = (X<sup>T</sup>X)<sup>-1</sup>X<sup>T</sup>y
