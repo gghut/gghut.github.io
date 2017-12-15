@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ggh</title>
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">]
+</head>
+<body>
+<div ng-app="blog">
+    <div ui-view="header"></div>
+    <div ui-view="content"></div>
+    <div ui-view="footer"></div>
+</div>
+</body>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="//cdn.bootcss.com/angular.js/1.6.5/angular.min.js"></script>
+<script src="//cdn.bootcss.com/angular-ui-router/1.0.3/angular-ui-router.min.js"></script>
+<script>
+    angular.module('blog',['ui.router'])
+        .controller('newsController',[
+            '$scope',
+            '$http',
+            '$stateParams',
+            function ($scope, $http, $stateParams) {
+                $http.get ('/data/news/get?did=' + $stateParams.did)
+                    .then (function (result) {
+                        var data = result.data;
+                        if (data.response_code == '200005') {
+                            window.location.href = '/login';
+                        } else if (data.response_code == '00') {
+                            $scope.title = data.content.title;
+                            $scope.time = data.content.date;
+                            $scope.author = data.content.author;
+                            $scope.text = data.content.text;
+                            $scope.url = data.content.url;
+                        } else {
+                            $scope.search_error = data.response_msg;
+                        }
+                    })
+                    .catch (function () {
+                        $scope.search_error = 'error';
+                    });
+            },
+        ])
+        .config(function ($urlRouterProvider, $stateProvider) {
+            $urlRouterProvider.otherwise('/index');
+            $stateProvider.state('index',{
+                url: '/index',
+                views:{
+                    'header':{
+                        templateUrl: 'layout/header.html'
+                    },
+                    'content':{
+                        templateUrl: 'list.html',
+                        controller: function ($scope) {
+                            $.ajax({
+                                url: 'data/list.json',
+                                type: 'get',
+                                success: function (data) {
+                                    $scope.list = data;
+                                }
+                            })
+                        }
+                    },
+                    'footer':{
+                        templateUrl: 'layout/footer.html'
+                    }
+                }
+            })});
+</script>
+</html>
