@@ -20,12 +20,21 @@
 <script src="//cdn.bootcss.com/angular-ui-router/1.0.3/angular-ui-router.min.js"></script>
 <script>
     angular.module('blog',['ui.router'])
-        .controller('newsController',[
+        .controller('listController',[
             '$scope',
             '$http',
             '$stateParams',
             function ($scope, $http, $stateParams) {
+                $http.get('data/list.json')
+                .then(function(result){
+                    if(result.state == 200){
+                        $scope.list = result.data;
 
+                    }
+                })
+                .catch(function(){
+                    console.log('error')
+                })
             },
         ])
         .config(function ($urlRouterProvider, $stateProvider) {
@@ -37,7 +46,8 @@
                         templateUrl: 'layout/header.html'
                     },
                     'content':{
-                        templateUrl: 'list.html'
+                        templateUrl: 'layout/list.html',
+                        controller: 'listController'
                     },
                     'footer':{
                         templateUrl: 'layout/footer.html'
