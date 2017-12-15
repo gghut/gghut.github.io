@@ -36,16 +36,7 @@
                         templateUrl: 'layout/header.html'
                     },
                     'content':{
-                        templateUrl: 'list.html',
-                        controller: function ($scope) {
-                            $.ajax({
-                                url: 'data/list.json',
-                                type: 'get',
-                                success: function (data) {
-                                    $scope.list = data;
-                                }
-                            })
-                        }
+                        templateUrl: 'list.html'
                     },
                     'footer':{
                         templateUrl: 'layout/footer.html'
