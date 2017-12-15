@@ -24,24 +24,7 @@
             '$http',
             '$stateParams',
             function ($scope, $http, $stateParams) {
-                $http.get ('/data/news/get?did=' + $stateParams.did)
-                    .then (function (result) {
-                        var data = result.data;
-                        if (data.response_code == '200005') {
-                            window.location.href = '/login';
-                        } else if (data.response_code == '00') {
-                            $scope.title = data.content.title;
-                            $scope.time = data.content.date;
-                            $scope.author = data.content.author;
-                            $scope.text = data.content.text;
-                            $scope.url = data.content.url;
-                        } else {
-                            $scope.search_error = data.response_msg;
-                        }
-                    })
-                    .catch (function () {
-                        $scope.search_error = 'error';
-                    });
+
             },
         ])
         .config(function ($urlRouterProvider, $stateProvider) {
