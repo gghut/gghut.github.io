@@ -27,10 +27,10 @@
             function ($scope, $http, $stateParams) {
                 $http.get('data/list.json')
                 .then(function(result){
-                    if(result.state == 200){
+                    if(result.status == 200){
                         $scope.list = result.data;
                     }else{
-                        console.log(result.state)
+                        console.log(result.status)
                     }
                 })
                 .catch(function(){
