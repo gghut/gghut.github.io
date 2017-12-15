@@ -1,4 +1,3 @@
-# gghut.github.io
 ddd
 =====
 
