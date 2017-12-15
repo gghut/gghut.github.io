@@ -29,7 +29,8 @@
                 .then(function(result){
                     if(result.state == 200){
                         $scope.list = result.data;
-
+                    }else{
+                        console.log(result.state)
                     }
                 })
                 .catch(function(){
