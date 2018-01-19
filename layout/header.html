@@ -1,47 +1,25 @@
-<style>
-    header{
-        flex: 0 0 auto;
-    }
-        .i-header {
-            background-color: rgb(255, 255, 255);
-            height: 60px;
-        }
-    
-        .i-header nav {
-            margin: 0 auto;
-            width: 95%;
-            height: 60px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-    
-        .i-header img {
-            height: 35px;
-            padding: 0 50px;
-        }
-    
-        .i-header ul {
-            list-style-type: none;
-            display: flex;
-        }
-    
-        .li {
-            padding-left: 30px;
-        }
-    
-        .li a {
-            text-decoration: none;
-            cursor: pointer;
-            color: #fff;
-        }
-    
-        .li a:hover {
-            color: #2196f3;
-        }
-</style>
 <header class="i-header">
     <nav>
         <a href="index.html"><img src="img/favicon.ico"><strong>Ggh</strong></a>
+    </nav>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-6" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">我的博客</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-6">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">最新博客</a></li>
+                    <li><a href="#">博客</a></li>
+                    <li><a href="#">项目</a></li>
+                </ul>
+            </div>
+        </div>
     </nav>
 </header>
