@@ -6,8 +6,8 @@ body {
 	background-repeat:no-repeat;
 	background-position:center;
 	background-attachment:fixed;
-    margin: 0 auto;
-    height: 100%;
+	margin: 0 auto;
+	height: 100%;
     width: 800px;
 	background-color: #fff;
 	color: #000;
@@ -17,4 +17,6 @@ body {
 }
 .content{
 	flex: 1 0 auto;
+	margin: auto;
+	min-height: 100%
 }
