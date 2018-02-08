@@ -1,6 +1,7 @@
 [{
   "title":"auth-自定义授权,认证",
   "description":"新版本auth依然采用同1.*版本一致的通过在filter层拦截,检测请求的方式达到对用户请求进行认证授权的作用",
+  "date":"2017-01-22",
   "uri":"/blog/auth.html"
 },{
   "title":"docker常用命令",
