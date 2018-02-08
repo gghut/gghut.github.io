@@ -234,3 +234,34 @@ SearchResponse response = client.prepareSearch("index1", "index2")
         .setTypes("type1", "type2")
         .get();
 ```
+
+### 精确值查找
+
+当进行精确值查找时， 我们会使用过滤器（filters）。过滤器很重要，因为它们执行速度非常快，不会计算相关度（直接跳过了整个评分阶段）而且很容易被缓存
+
+term查询:最为常用查询， 可以用它处理数字（numbers）、布尔值（Booleans）、日期（dates）以及文本（text）。
+
+```java
+SearchResponse response = client.prepareSearch("index1", "index2")
+        .setTypes("type1", "type2")
+        .setQuery(QueryBuilders.termQuery("字段", "值"))
+        .get();
+```
+
+### 范围
+
+```java
+SearchResponse response = client.prepareSearch("index1", "index2")
+        .setTypes("type1", "type2")
+        .setPostFilter(QueryBuilders.rangeQuery("age").from(12).to(18))
+        .get();
+```
+
+### 匹配
+
+```java
+SearchResponse response = client.prepareSearch("index1", "index2")
+        .setTypes("type1", "type2")
+        .setQuery(QueryBuilders.queryStringQuery(key))
+        .get();
+```
