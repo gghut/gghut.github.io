@@ -14,5 +14,9 @@
   "title":"聊天机器人",
   "description":"接入个人微信聊天机器人",
   "uri":"/robot_chat"
+},{
+  "title":"Elasticsearch 简介",
+  "description":"Elasticsearch入门使用介绍",
+  "uri":"/blog/elasticsearch/introduce.html"
 }
 ]
