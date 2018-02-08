@@ -9,6 +9,13 @@ Elasticsearch 是一个开源的搜索引擎，建立在一个全文搜索引擎
 
 Elasticsearch 也是使用 Java 编写的，它的内部使用 Lucene 做索引与搜索，但是它的目的是使全文检索变得简单， 通过隐藏 Lucene 的复杂性，取而代之的提供一套简单一致的 RESTful API
 
+面向文档
+-----
+
+也许有一天你想把这些对象存储在数据库中。使用关系型数据库的行和列存储，这相当于是把一个表现力丰富的对象挤压到一个非常大的电子表格中：你必须将这个对象扁平化来适应表结构--通常一个字段>对应一列--而且又不得不在每次查询时重新构造对象。
+
+Elasticsearch 是 面向文档 的，意味着它存储整个对象或 文档_。Elasticsearch 不仅存储文档，而且 _索引 每个文档的内容使之可以被检索。在 Elasticsearch 中，你 对文档进行索引、检索、排序和过滤--而不是对行列数据。这是一种完全不同的思考数据的方式，也是 Elasticsearch 能支持复杂全文检索的原因。
+
 和 Elasticsearch 交互
 -----
 
@@ -114,3 +121,116 @@ docker pull elasticsearch:5.6.7
 >```java
 >$ docker run -d --name elas elasticsearch -Etransport.host=0.0.0.0 -Ediscovery.zen.minimum_master_nodes=1
 >```
+
+Elasticsearch JAVA API
+----
+
+## Transport Client
+
+```java
+// on startup
+
+TransportClient client = new PreBuiltTransportClient(Settings.EMPTY)
+        .addTransportAddress(new InetSocketTransportAddress(InetAddress.getByName("host1"), 9300))
+        .addTransportAddress(new InetSocketTransportAddress(InetAddress.getByName("host2"), 9300));
+
+// on shutdown
+
+client.close();
+```
+
+```java
+Settings settings = Settings.builder()
+        .put("cluster.name", "myClusterName").build();
+TransportClient client = new PreBuiltTransportClient(settings);
+//Add transport addresses and do something with the client...
+```
+* client.transport.sniff    enable sniffing
+
+* client.transport.ignore_cluster_name  Set to true to ignore cluster name validation of connected nodes. (since 0.19.4)
+
+* client.transport.ping_timeout The time to wait for a ping response from a node. Defaults to 5s
+
+* client.transport.nodes_sampler_interval   How often to sample / ping the nodes listed and connected. Defaults to 5s
+
+## 索引
+
+存储数据到 Elasticsearch 的行为叫做索引，但在索引一个文档之前，需要确定将文档存储在哪里。
+
+一个 Elasticsearch 集群可以包含多个索引，相应的每个索引可以包含多个类型。这些不同的类型存储着多个文档 ，每个文档又有多个属性 。
+
+索引（名词）：
+
+如前所述，一个 索引 类似于传统关系数据库中的一个 数据库 ，是一个存储关系型文档的地方。 索引 (index) 的复数词为 indices 或 indexes
+
+索引（动词）：
+
+索引一个文档 就是存储一个文档到一个 索引 （名词）中以便它可以被检索和查询到。这非常类似于 SQL 语句中的 INSERT 关键词，除了文档已存在时新文档会替换旧文档情况之外。
+
+指定ID
+
+```java
+IndexResponse response = client.prepareIndex("twitter", "tweet", "1")
+        .setSource(json)
+        .get();
+```
+自动生成ID
+
+```java
+IndexResponse response = client.prepareIndex("twitter", "tweet")
+        .setSource(json)
+        .get();
+```
+
+## 检索
+
+在 Elasticsearch 中很简单。简单地执行 一个 HTTP GET 请求并指定文档的地址——索引库、类型和ID,相当于SQL的SELECT
+
+```java
+GetResponse response = client.prepareGet("twitter", "tweet", "1").get();
+```
+
+在RESTFul API中:
+
+* PUT   /twitter/tweet/1 索引数据
+
+* GET   /twitter/tweet/1 检索数据
+
+* DELETE   /twitter/tweet/1 删除数据
+
+* HEAD   /twitter/tweet/1 查看数据是否存在
+
+综上:可以猜测删除文档的API为
+
+```java
+DeleteResponse response = client.prepareDelete("twitter", "tweet", "1").get();
+```
+
+## 更新
+
+更新文档
+
+```java
+client.prepareUpdate("twitter", "tweet", "1")
+        .setDoc(json)
+        .get();
+```
+
+更新插入文档
+
+```java
+IndexRequest indexRequest = new IndexRequest("index", "type", "1")
+        .source(json);
+UpdateRequest updateRequest = new UpdateRequest("index", "type", "1")
+        .doc(json)
+        .upsert(indexRequest);              
+client.update(updateRequest).get();
+```
+
+## 搜索
+
+```java
+SearchResponse response = client.prepareSearch("index1", "index2")
+        .setTypes("type1", "type2")
+        .get();
+```
