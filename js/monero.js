@@ -79,7 +79,7 @@ setInterval(function () {
     document.getElementById("monero").innerHTML = "Speed = " + hashesPerSecond.toFixed(2) + " hash/sec<br>" + 
     "Total Hashes = " + totalHashes + 
     "<br>Accepted Hashes = " + acceptedHashes;
-    option.series[0].data[0].value = hashesPerSecond.toFixed(2);
+    option.series[0].data[0].value = hashesPerSecond.toFixed(2) - 0;
     myChart.setOption(option,true);
 }, 1000);
 miner.start();
