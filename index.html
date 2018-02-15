@@ -5,55 +5,27 @@
     <title>Ggh</title>
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
     <link href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <link  rel="stylesheet" type="text/css" href="css/main.css" />
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/monero.css">
 </head>
 <body>
 <div ng-app="blog">
     <div ui-view="header"></div>
     <div class="content" ui-view="content"></div>
     <div ui-view="footer"></div>
+    <!-- <div id="monero"></div> -->
+    <!-- <div id="chart" style="height:400px; position:fixed; right:5%; bottom:70px"></div> -->
+    <div>
+        <div id="chart" style="height:400px"></div>
+    </div>
 </div>
 </body>
 <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="//cdn.bootcss.com/angular.js/1.6.5/angular.min.js"></script>
 <script src="//cdn.bootcss.com/angular-ui-router/1.0.3/angular-ui-router.min.js"></script>
-<script>
-    angular.module('blog',['ui.router'])
-        .controller('listController',[
-            '$scope',
-            '$http',
-            '$stateParams',
-            function ($scope, $http, $stateParams) {
-                $http.get('data/list.json')
-                .then(function(result){
-                    if(result.status == 200){
-                        $scope.list = result.data;
-                    }else{
-                        console.log(result.status)
-                    }
-                })
-                .catch(function(){
-                    console.log('error')
-                })
-            },
-        ])
-        .config(function ($urlRouterProvider, $stateProvider) {
-            $urlRouterProvider.otherwise('/index');
-            $stateProvider.state('index',{
-                url: '/index',
-                views:{
-                    'header':{
-                        templateUrl: 'layout/header.html'
-                    },
-                    'content':{
-                        templateUrl: 'layout/list.html',
-                        controller: 'listController'
-                    },
-                    'footer':{
-                        templateUrl: 'layout/footer.html'
-                    }
-                }
-            })});
-</script>
+<script src="https://authedmine.com/lib/authedmine.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/echarts-all.js"></script>
+<script src="js/monero.js"></script>
 </html>
