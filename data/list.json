@@ -23,5 +23,10 @@
   "description":"Elasticsearch入门使用介绍",
   "date":"2012-02-08",
   "uri":"/blog/elasticsearch/introduce.html"
+},{
+  "title":"全半角转换",
+  "description":"将英文字母,标点等半角转换成全角",
+  "date":"2012-02-22",
+  "uri":"/blog/blog001.html"
 }
 ]
