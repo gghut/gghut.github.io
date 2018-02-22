@@ -31,7 +31,7 @@ JAVA CODE DEMO
 半角转全角:
 
 ```java
-    public static String half2Full(String value) {
+    public String half2Full(String value) {
         char[] charArray = value.toCharArray();
         for (int i = 0; i < charArray.length; i++) {
             if (charArray[i] == 32) {
