@@ -11,9 +11,9 @@
 
 ## 计算
 
-向量点极公司:
+向量点积公司:
 
 $$ cos\theta = \dfrac{\vec{a} \cdot \vec{b}}{||\vec{a}||||\vec{b}||} $$
 
-
-$$ x = \dfrac{-b \pm \sqrt{b^2 - 4ac}}{2a} $$
+设$\vec{a}=(A_1,A_2...A_n)$,$\vec{b}=(B_1,B_2...Bn)$
+$$ cos\theta = \dfrac{\Sigma(A_i \times B_i)}{\sqrt{\Sigma_1^nA_i^2} \times \sqrt{\Sigma_1^nB_i^2}} $$
