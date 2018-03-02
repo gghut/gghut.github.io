@@ -17,3 +17,10 @@ $$ cos\theta = \dfrac{\vec{a} \cdot \vec{b}}{||\vec{a}||||\vec{b}||} $$
 
 设$\vec{a}=(A_1,A_2...A_n)$,$\vec{b}=(B_1,B_2...Bn)$
 $$ cos\theta = \dfrac{\Sigma(A_i \times B_i)}{\sqrt{\Sigma_1^nA_i^2} \times \sqrt{\Sigma_1^nB_i^2}} $$
+
+## 性质
+
+>余弦值的范围在[-1,1]之间，值越趋近于1，代表两个向量的方向越接近；越趋近于-1，他们的方向越相反；接近于0，表示两个向量近乎于正交。
+
+文章向量值
+-----
