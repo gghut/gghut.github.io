@@ -4,7 +4,7 @@ angular.module('blog', ['ui.router'])
         '$http',
         '$stateParams',
         function ($scope, $http, $stateParams) {
-            $scope.list = function(index){
+            $scope.page_index = function(index){
                 $http.get('data/list/'+index+'.json')
                 .then(function (result) {
                     if (result.status == 200) {
@@ -16,7 +16,7 @@ angular.module('blog', ['ui.router'])
                     console.log('error')
                 })
             }
-            $scope.list(1)
+            $scope.page_index(1)
         },
     ])
     .config(function ($urlRouterProvider, $stateProvider) {
