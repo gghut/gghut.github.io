@@ -4,17 +4,19 @@ angular.module('blog', ['ui.router'])
         '$http',
         '$stateParams',
         function ($scope, $http, $stateParams) {
-            $http.get('data/list.json')
+            $scope.list = function(index){
+                $http.get('data/list/'+index+'.json')
                 .then(function (result) {
                     if (result.status == 200) {
-                        $scope.list = result.data;
+                        $scope.list = result.data.list;
                     } else {
                         console.log(result.status)
                     }
-                })
-                .catch(function () {
+                }).catch(function () {
                     console.log('error')
                 })
+            }
+            $scope.list(1)
         },
     ])
     .config(function ($urlRouterProvider, $stateProvider) {
