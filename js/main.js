@@ -4,25 +4,25 @@ angular.module('blog', ['ui.router'])
         '$http',
         '$stateParams',
         function ($scope, $http, $stateParams) {
-            $scope.page_index = function(index){
-                $http.get('data/list/'+index+'.json')
+            $http.get('data/list/'+$stateParams.page+'.json')
                 .then(function (result) {
                     if (result.status == 200) {
                         $scope.list = result.data.list;
+                        $scope.count = result.data.count;
+                        $scope.countRange = new Array(result.data.count);
+                        $scope.pageIndex = $stateParams.page;
                     } else {
                         console.log(result.status)
                     }
                 }).catch(function () {
                     console.log('error')
                 })
-            }
-            $scope.page_index(1)
         },
     ])
     .config(function ($urlRouterProvider, $stateProvider) {
-        $urlRouterProvider.otherwise('/index');
+        $urlRouterProvider.otherwise('/index/0');
         $stateProvider.state('index', {
-            url: '/index',
+            url: '/index/:page',
             views: {
                 'header': {
                     templateUrl: 'layout/header.html'
