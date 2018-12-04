@@ -1,21 +1,23 @@
-html{
-	height: 100%
+html {
+    height: 100%
 }
+
 body {
-	background-image:url(../img/blue-mountain.jpg);
-	background-repeat:no-repeat;
-	background-position:center;
-	background-attachment:fixed;
-	margin: 0 auto;
-	height: 100%;
+    background-image: url(../img/blue-mountain.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    margin: 0 auto;
+    height: 100%;
     width: 800px;
-	background-color: #fff;
-	color: #000;
-	font: 13px "Myriad Pro", "Lucida Grande", Lucida, Verdana, sans-serif;
-	display: flex;
-	flex-direction: column
+    background-color: #fff;
+    color: #000;
+    font: 13px "Myriad Pro", "Lucida Grande", Lucida, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column
 }
-.content{
-	flex: 1 0 auto;
-	margin: auto;
+
+.content {
+    flex: 1 0 auto;
+    margin: auto;
 }
