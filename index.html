@@ -10,7 +10,10 @@
 <body>
 <div ng-app="blog">
     <div ui-view="header"></div>
-    <div class="content" ui-view="content"></div>
+    <div class="body">
+        <div class="content" ui-view="content"></div>
+        <div class="overhead"></div>
+    </div>
     <div ui-view="footer"></div>
 </div>
 </body>

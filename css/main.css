@@ -9,15 +9,21 @@ body {
     background-attachment: fixed;
     margin: 0 auto;
     height: 100%;
-    width: 800px;
-    background-color: #fff;
-    color: #000;
+    width: 1000px;
     font: 13px "Myriad Pro", "Lucida Grande", Lucida, Verdana, sans-serif;
+}
+
+.body{
     display: flex;
-    flex-direction: column
 }
 
 .content {
     flex: 1 0 auto;
     margin: auto;
+}
+
+.overhead{
+    padding: 30px;
+    min-height: 200px;
+    width: 40%
 }
