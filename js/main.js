@@ -36,18 +36,4 @@ angular.module('blog', ['ui.router'])
                 }
             }
         });
-        $stateProvider.state('blog', {
-            url: '/blog/:page',
-            views: {
-                'header': {
-                    templateUrl: 'layout/header.html'
-                },
-                'content': {
-                    templateUrl: 'blog/blog001.html',
-                },
-                'footer': {
-                    templateUrl: 'layout/footer.html'
-                }
-            }
-        });
     });
