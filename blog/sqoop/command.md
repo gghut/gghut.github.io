@@ -13,6 +13,11 @@ sqoop import \
 --incremental <mode> \
 --check-column <column name> \
 --last-value <last check column value> \
+--hive-import \
+--create-hive-table \
+--hive-talbe <table name>
+--fields-terminated-by <separator>
+--lines-terminated-by <separator>
 ```
 
 * import RDBMS向HDFS导入
@@ -26,6 +31,11 @@ sqoop import \
 * incremental
 * check-column
 * last-value
+* hive-import 将数据导入到hive
+* create-hive-table 自动创建表(如果表存在会报错)
+* hive-table 自动创建表的名称
+* fields-terminated-by 设置行内分割符号,hive默认行内分隔符"\0001"对应ASCII中的1,sqoop默认行内分割符","
+* lines-terminated-by 行间分隔符
 
 ```sh
 sqoop import-all-tables (generic-args) (import-args)
@@ -40,6 +50,9 @@ sqoop export
 --password <pwd> \
 --table <table name> \
 --export-dir /emp/emp_data
+--update-mode [allowinsert/updateonly]
+--update-key <key name>
+--input-fields-terminated-by <separator>
 ```
 
 * export 从HDFS导出回RDBMS
