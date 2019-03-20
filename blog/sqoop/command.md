@@ -1,6 +1,8 @@
 sqoop command
 ===
 
+[官方文档 1.4.7](http://sqoop.apache.org/docs/1.4.7/SqoopUserGuide.html)
+
 ```sh
 sqoop import \
 --connect jdbc:mysql://localhost/userdb \
@@ -15,9 +17,9 @@ sqoop import \
 --last-value <last check column value> \
 --hive-import \
 --create-hive-table \
---hive-talbe <table name>
---fields-terminated-by <separator>
---lines-terminated-by <separator>
+--hive-talbe <table name> \
+--fields-terminated-by <separator> \
+--lines-terminated-by <separator> 
 ```
 
 * import RDBMS向HDFS导入
