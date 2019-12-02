@@ -215,9 +215,31 @@ static final int hash(Object key) {
 
 322
 
+两次hash，第一次hash确定segment，第二次确定数组的位置
+
+## TreeMap
+
+实现了SortedMap接口，他是有序的接口，红黑树接口，每个key-value都作为一个红黑树节点
+
+key必须实现Comparable接口
+
 ## HashTable
 
+继承与Dictionary，实现了Map，Cloneable，Serializable接口
+
+方法是同步的，他是线程安全的，kv不能为null，key无序
+
 补充原理及hashmap的区别
+
+### HashMap与HashMap的区别
+
+* 父类不同，hashMap继承自AbstractMap，hashTable继承自Dictionary
+* HashMap线程不安全，HashTable使用Synchronized，线程安全
+* HashMap只包含containsKey以及containsValue，HashTable包含contains（同containsKey）、containsKey，containsValue
+* HashMap允许可以一个key为null，多个value为null，HashTable的key-value一个都不允许为null
+* HashTable保留了Enumeration遍历方式
+* HashTalbe直接使用hashCode取摸，HashMap运用hashCode的高16位与低16位做异或运算再取摸
+* HashTable在不指定容量的默认值为11，扩容为old×2+1，HashMap为16，扩容为2×old
 
 ###ConcurrentSkipListMap
 
