@@ -213,6 +213,8 @@ static final int hash(Object key) {
 
 ### ConcurrentHashMap
 
+### LinkedHashMap
+
 322
 
 两次hash，第一次hash确定segment，第二次确定数组的位置
